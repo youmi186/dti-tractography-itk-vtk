@@ -1,0 +1,56 @@
+#include "VolumeRenderer.h"
+
+int main(int argc, char* argv[]) {
+    VolumeRenderer renderer("../data/FA.nrrd");
+    renderer.Render();
+    return 0;
+}
+
+#include "SingleSeedFiberTrack.h"
+
+int main() {
+    const char* vectorBinFile = "../data/eigenvector_data.bin";
+    const char* faFile = "../data/FA.nrrd";
+
+    SingleSeedFiberTrack fiber(vectorBinFile, faFile);
+    fiber.setParameters(0.3, 1.5);
+    std::array<double, 3> seed = {72.0, 72.0, 34.0};
+    fiber.traceFiber(seed);
+    fiber.visualize();
+
+    return 0;
+}
+
+
+#include "LabeledFiberTrack.h"
+
+int main() {
+    const char* vectorBinFile = "../data/eigenvector_data.bin";
+    const char* faFile = "../data/FA.nrrd";
+    const char* labelFile = "../data/FALabeled.nrrd";
+
+    LabeledFiberTrack fiber(vectorBinFile, faFile);
+    fiber.setParameters(0.3, 1.5);
+    fiber.traceAllFibers(labelFile);
+    fiber.visualize();
+
+    return 0;
+}
+
+#include "FreeFiberTrack.h"
+
+int main() {
+    const char* vectorBinFile = "../data/eigenvector_data.bin";
+    const char* faFile = "../data/FA.nrrd";
+
+    FreeFiberTrack visualizer(vectorBinFile, faFile);
+    visualizer.setParameters(0.5, 0.8);
+
+    while (true) {
+        visualizer.traceFiber(SeedPoint);
+        visualizer.visualize();
+        SeedPointUpdated = false;
+    }
+
+    return 0;
+}
