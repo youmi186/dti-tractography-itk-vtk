@@ -1,6 +1,6 @@
 # DTI Tractography and Visualization using ITK and VTK
 
-This repository presents a simplified, demonstrative version of a white matter fiber tractography and visualization system implemented in C++ using ITK and VTK. The project was developed as part of the CS6357 course at Vanderbilt University and is shared here strictly for academic portfolio purposes.
+According to Academic Integrity: This repository presents a simplified, demonstrative version of a white matter fiber tractography and visualization system implemented in C++ using ITK and VTK. The project is shared here strictly for academic portfolio purposes.
 
 ## 🔍 Overview
 
